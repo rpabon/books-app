@@ -1,67 +1,22 @@
-/** App */
-export interface AppState {
-  readonly postsList: PostsListState;
-  readonly postSingle: SinglePostState;
-  readonly commentList: CommentsState;
+export interface StoreAction {
+  readonly type: string;
+  readonly payload?: any;
 }
 
-export interface AppRoute {
-  path: string;
-  component: React.ComponentClass;
-  exact?: boolean;
+export type DispatchAction = (action: StoreAction) => any;
+
+/* Book List */
+export interface Book {
+  readonly id: number;
+  readonly author_id: number;
+  readonly title: string;
+  readonly author: string;
+  readonly url: string;
+  readonly url_small: string;
 }
 
-/** Single Post */
-export interface SinglePostType {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-export interface SinglePostState {
-  readonly post: SinglePostType;
+export interface BookListState {
+  readonly list: Book[];
   readonly pending: boolean;
-  readonly error: Error | null;
-}
-
-export interface SinglePostAction {
-  type: string;
-  payload?: SinglePostType;
-}
-
-/** Posts List */
-export interface PostsListState {
-  readonly posts: SinglePostType[];
-  readonly pending: boolean;
-  readonly error: Error | null;
-}
-
-export interface PostsListAction {
-  type: string;
-  payload?: SinglePostType[];
-}
-
-export interface PostsListProps {
-  posts: SinglePostType[];
-  pending: boolean;
-}
-
-/** Comments */
-export interface CommentType {
-  id: number;
-  name: string;
-  body: string;
-  email: string;
-}
-
-export interface CommentsState {
-  readonly comments: CommentType[];
-  readonly pending: boolean;
-  readonly error: Error | null;
-}
-
-export interface CommentsAction {
-  type: string;
-  payload?: CommentType[];
+  readonly error?: Error;
 }

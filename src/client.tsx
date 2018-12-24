@@ -1,9 +1,22 @@
-import * as React from 'react';
+import React, { useReducer, FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from './containers/App';
+import App from './components/App';
+import { bookListReducer, bookListInitialState } from './reducers/book-list';
+import { BookListContext } from './contexts';
 
-const clientApp = <App />;
+const ClientApp: FunctionComponent<{}> = () => {
+  const [bookListState, dispatchBookListActions] = useReducer(
+    bookListReducer,
+    bookListInitialState
+  );
 
-ReactDOM.hydrate(clientApp, document.getElementById('root'));
+  return (
+    <BookListContext.Provider
+      value={{ state: bookListState, dispatch: dispatchBookListActions }}
+    >
+      <App />
+    </BookListContext.Provider>
+  );
+};
+
+ReactDOM.hydrate(<ClientApp />, document.getElementById('root'));
