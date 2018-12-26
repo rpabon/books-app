@@ -1,14 +1,14 @@
-import PostsList from './containers/PostsList';
-import PostSingle from './containers/PostSingle';
+import BookList from './components/BookList';
+import Book from './components/Book';
 
-export const routes: AppRoute[] = [
+export default [
   {
     path: '/',
-    component: PostsList,
-    exact: true,
+    component: BookList,
+    exact: true
   },
   {
-    path: '/post/:id',
-    component: PostSingle,
-  },
+    path: '/book/:id',
+    component: Book
+  }
 ];

@@ -1,5 +1,4 @@
-import { BookListState } from '../components/SearchInput/interfaces';
-import { StoreAction } from '../interfaces';
+import { StoreAction, BookListState } from '../../interfaces';
 import {
   BOOK_LIST_PENDING,
   BOOK_LIST_SUCCESS,

@@ -1,32 +1,16 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
 import { getTraversalObj, convertToJson } from 'fast-xml-parser';
+import { BASE_URL, API_KEY, xmlParserOptions } from './constants';
 
 export default (req: Request, res: Response) => {
-  const options = {
-    attributeNamePrefix: '@_',
-    attrNodeName: 'attr', // default is 'false'
-    textNodeName: '#text',
-    ignoreAttributes: true,
-    ignoreNameSpace: false,
-    allowBooleanAttributes: false,
-    parseNodeValue: true,
-    parseAttributeValue: false,
-    trimValues: true,
-    decodeHTMLchar: false,
-    cdataTagName: '__cdata', // default is 'false'
-    cdataPositionChar: '\\c'
-  };
-
-  const BASE_URL = 'https://www.goodreads.com';
-  const API_KEY = 'lImPPSmrPgewMvaxepEspw';
   const query = req.query.q;
 
   axios
     .get(`${BASE_URL}/search?key=${API_KEY}&q=${query}`)
     .then(({ data }) => {
-      const tObj = getTraversalObj(data, options);
-      const jsonObj = convertToJson(tObj, options);
+      const tObj = getTraversalObj(data, xmlParserOptions);
+      const jsonObj = convertToJson(tObj, xmlParserOptions);
       const books = jsonObj.GoodreadsResponse.search.results.work.map(
         ({ best_book }: any) => ({
           id: best_book.id,

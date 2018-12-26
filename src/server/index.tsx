@@ -1,10 +1,13 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
-import React from 'react';
+import React, { useReducer } from 'react';
 import { renderToString } from 'react-dom/server';
+import { StaticRouter, matchPath } from 'react-router-dom';
 import App from '../components/App';
 import bookListMiddleware from './middleware/book-list';
-import { BookListContext } from '../contexts';
+import bookMiddleware from './middleware/book';
+import routes from '../routes';
+import { bookInitialState, bookReducer } from '../reducers/book';
 
 const htmlTemplate = (reactDOM: string) => `
   <!DOCTYPE html>
@@ -26,10 +29,15 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-app.use('/books', bookListMiddleware);
+app.use('/fetch-books', bookListMiddleware);
+app.use('/fetch-book', bookMiddleware);
 
-app.get('/', (req: Request, res: Response) => {
-  const reactDOM = renderToString(<App />);
+app.get('/*', (req: Request, res: Response) => {
+  const reactDOM = renderToString(
+    <StaticRouter location={req.url} context={{}}>
+      <App />
+    </StaticRouter>
+  );
 
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.end(htmlTemplate(reactDOM));

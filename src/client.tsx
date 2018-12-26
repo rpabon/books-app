@@ -1,21 +1,16 @@
-import React, { useReducer, FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
-import { bookListReducer, bookListInitialState } from './reducers/book-list';
-import { BookListContext } from './contexts';
+import StoreProvider from './store/StoreProvider';
 
 const ClientApp: FunctionComponent<{}> = () => {
-  const [bookListState, dispatchBookListActions] = useReducer(
-    bookListReducer,
-    bookListInitialState
-  );
-
   return (
-    <BookListContext.Provider
-      value={{ state: bookListState, dispatch: dispatchBookListActions }}
-    >
-      <App />
-    </BookListContext.Provider>
+    <StoreProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StoreProvider>
   );
 };
 

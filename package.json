@@ -6,7 +6,7 @@
   "scripts": {
     "check-types": "tsc",
     "client": "webpack --mode production --config config/webpack.config.dev.js --watch",
-    "server": "nodemon ./src/index.js --watch",
+    "server": "nodemon -e ts,tsx -w ./src/index.js -w ./src/server",
     "dev": "npm-run-all --parallel server client"
   },
   "author": "Ricardo Pabón",

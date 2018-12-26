@@ -1,14 +1,16 @@
-import React, { useState, useContext, memo, KeyboardEvent, SFC } from 'react';
-import { getBookList } from '../../actions';
-import { BookListContext } from '../../contexts';
+import React, { useState, useContext, KeyboardEvent, SFC } from 'react';
+import { withRouter } from 'react-router';
+import { getBookList } from '../../store/actions';
+import { BookListContext } from '../../store/contexts';
 
-const SearchInput: SFC<{}> = () => {
+const SearchInput: SFC<{}> = ({ history }) => {
   const [value, setValue] = useState('');
   const { dispatch } = useContext(BookListContext);
 
   const onEnter = ({ key }: KeyboardEvent) => {
     if (key === 'Enter' && value) {
       getBookList(dispatch, value);
+      history.push('/');
     }
   };
 
@@ -22,4 +24,4 @@ const SearchInput: SFC<{}> = () => {
   );
 };
 
-export default memo(SearchInput);
+export default withRouter(SearchInput);
