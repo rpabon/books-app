@@ -6,6 +6,14 @@
   ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    [
+      "css-modules-transform",
+      {
+        "extensions": [".css", ".scss"],
+        // has to be the same as in the CSS loader in the webpack config
+        "generateScopedName": "[name]__[local]___[hash:base64:5]"
+      }
+    ]
   ]
 }

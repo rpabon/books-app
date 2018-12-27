@@ -1,0 +1,10 @@
+.book {
+  & > img {
+    padding: 5px;
+    border: 1px solid lightblue;
+  }
+}
+
+.p {
+  color: lightcoral;
+}

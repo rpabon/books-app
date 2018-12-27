@@ -1,8 +1,9 @@
 import React, { useContext, FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
-import { Book } from '../interfaces';
-import { BookListContext } from '../store/contexts';
-import Loading from './Loading';
+import { Book } from '../../interfaces';
+import { BookListContext } from '../../store/contexts';
+import Loading from '../Loading';
+import styles from './BookList.scss';
 
 const BookList: FunctionComponent<{}> = () => {
   const {
@@ -13,7 +14,7 @@ const BookList: FunctionComponent<{}> = () => {
     <Loading />
   ) : (
     list.map(({ id, url_small, title, author }: Book) => (
-      <li key={id}>
+      <li key={id} className={styles.book}>
         <img src={url_small} title={title} />
         <Link to={`/book/${id}`}>{title}</Link>
         <br />

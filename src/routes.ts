@@ -1,4 +1,4 @@
-import BookList from './components/BookList';
+import BookList from './components/BookList/BookList';
 import Book from './components/Book';
 
 export default [
