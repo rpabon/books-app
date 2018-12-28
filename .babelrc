@@ -10,6 +10,7 @@
     [
       "css-modules-transform",
       {
+        "preprocessCss": "./config/cssPreprocessor.js",
         "extensions": [".css", ".scss"],
         // has to be the same as in the CSS loader in the webpack config
         "generateScopedName": "[name]__[local]___[hash:base64:5]"

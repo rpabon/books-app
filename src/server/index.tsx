@@ -1,13 +1,11 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
-import React, { useReducer } from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter, matchPath } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import App from '../components/App';
 import bookListMiddleware from './middleware/book-list';
 import bookMiddleware from './middleware/book';
-import routes from '../routes';
-import { bookInitialState, bookReducer } from '../reducers/book';
 
 const htmlTemplate = (reactDOM: string) => `
   <!DOCTYPE html>

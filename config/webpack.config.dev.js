@@ -23,6 +23,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: [/global/],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -34,6 +35,11 @@ module.exports = {
           },
           'sass-loader'
         ]
+      },
+      {
+        test: /\.scss$/,
+        include: [/global/],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
