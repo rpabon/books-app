@@ -15,6 +15,7 @@ const htmlTemplate = (reactDOM: string) => `
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Shit</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500">
       <link href="/main.css" rel="stylesheet">
   </head>
   <body>

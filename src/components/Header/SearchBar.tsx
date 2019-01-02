@@ -1,9 +1,16 @@
-import React, { useState, useContext, KeyboardEvent, SFC } from 'react';
+import React, {
+  useState,
+  useContext,
+  KeyboardEvent,
+  FunctionComponent
+} from 'react';
 import { withRouter } from 'react-router';
 import { getBookList } from '../../store/actions';
 import { BookListContext } from '../../store/contexts';
+import { History } from 'history';
+import * as styles from './Header.scss';
 
-const SearchInput: SFC<{}> = ({ history }) => {
+const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
   const [value, setValue] = useState('');
   const { dispatch } = useContext(BookListContext);
 
@@ -15,12 +22,15 @@ const SearchInput: SFC<{}> = ({ history }) => {
   };
 
   return (
-    <input
-      type="text"
-      onKeyPress={e => onEnter(e)}
-      onChange={e => setValue(e.target.value)}
-      value={value}
-    />
+    <div className={styles.inputWrapper}>
+      <input
+        type="text"
+        onKeyPress={e => onEnter(e)}
+        onChange={e => setValue(e.target.value)}
+        value={value}
+        placeholder="Search for a book..."
+      />
+    </div>
   );
 };
 

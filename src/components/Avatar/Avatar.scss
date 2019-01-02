@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.avatar {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  border: 0;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  justify-content: center;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background-color: rgba($white, 0.15);
+  }
+
+  & > img {
+    width: 32px;
+  }
+}

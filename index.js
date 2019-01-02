@@ -5,6 +5,6 @@ require('@babel/register')({
     '@babel/preset-typescript'
   ],
   plugins: ['dynamic-import-node'],
-  extensions: ['.ts', '.tsx', '.js']
+  extensions: ['.ts', '.tsx', '.js', '.png']
 });
 require('./src/server');
