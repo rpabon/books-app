@@ -1,10 +1,20 @@
-.book {
-  & > img {
-    padding: 5px;
-    border: 1px solid lightblue;
-  }
-}
+@import '../../styles//variables';
 
-.p {
-  color: lightcoral;
+.book-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+
+  &,
+  &.is-loading {
+    grid-template-columns: 1fr;
+  }
+
+  @include media(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

@@ -6,6 +6,7 @@ import { StaticRouter } from 'react-router-dom';
 import App from '../components/App';
 import bookListMiddleware from './middleware/book-list';
 import bookMiddleware from './middleware/book';
+import content from '../content';
 
 const htmlTemplate = (reactDOM: string) => `
   <!DOCTYPE html>
@@ -13,7 +14,7 @@ const htmlTemplate = (reactDOM: string) => `
   <head>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Shit</title>
+      <title>${content.appName}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500">
       <link href="/main.css" rel="stylesheet">

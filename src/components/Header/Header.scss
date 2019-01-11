@@ -2,11 +2,16 @@
 
 .header {
   position: sticky;
+  z-index: 99;
   top: 0;
   height: 64px;
   background-color: $green;
   color: $white;
   box-shadow: $casting-shadow;
+
+  .avatar {
+    margin-left: auto;
+  }
 }
 
 .title {

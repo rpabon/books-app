@@ -3,13 +3,13 @@ import classnames from 'classnames';
 import * as styles from './Container.scss';
 
 const Container: FunctionComponent<{
-  children: ReactNode[];
+  children: ReactNode;
   tag?: string;
-  extraClasses?: string;
+  className?: string;
   flex?: boolean;
-}> = ({ children, tag: Tag = 'div', extraClasses, flex }) => (
+}> = ({ children, tag: Tag = 'div', className, flex }) => (
   <Tag
-    className={classnames(extraClasses, styles.container, {
+    className={classnames(className, styles.container, {
       [styles.flex]: flex
     })}
   >

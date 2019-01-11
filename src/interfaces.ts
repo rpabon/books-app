@@ -13,6 +13,8 @@ export interface Book {
   readonly author: string;
   readonly url: string;
   readonly url_small: string;
+  readonly year: number;
+  readonly rating: number;
 }
 
 export interface BookListState {

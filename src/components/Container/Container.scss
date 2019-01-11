@@ -1,8 +1,11 @@
 .container {
   display: grid;
-  width: 100%;
+  grid-gap: 16px;
   max-width: 960px;
-  margin: 0 auto;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
 
   &.flex {
     display: flex;

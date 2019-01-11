@@ -1,7 +1,21 @@
 $green: #4caf50;
 $green-light: #8bc34a;
+$gray: #757575;
 $black: #000;
-$white: #FFF;
+$white: #fff;
 
 $casting-shadow: 0 2px 2px 0 rgba($black, 0.14),
   0 3px 1px -2px rgba($black, 0.2), 0 1px 5px 0 rgba($black, 0.12);
+
+$grid-breakpoints: (
+  md: 480px,
+  lg: 768px,
+  xl: 960px,
+  xxl: 1330px
+);
+
+@mixin media($breakpoint-name) {
+  @media (min-width: #{map_get($grid-breakpoints, $breakpoint-name)}) {
+    @content;
+  }
+}
