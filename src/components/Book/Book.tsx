@@ -2,31 +2,23 @@ import React, { useEffect, useReducer, FunctionComponent } from 'react';
 import { getBook } from '../../store/actions';
 import { bookReducer, bookInitialState } from '../../store/reducers/book';
 import Loading from '../Loading/Loading';
-import SingleBook from './SingleBook';
-import { Book as BookInterface } from '../../interfaces';
 import Container from '../Container/Container';
+import BookInfo from './BookInfo';
+import SimilarBooks from '../SimilarBooks.tsx/SimilarBooks';
 
 const Book: FunctionComponent<{ match: any }> = ({ match }) => {
   const url = (match && match.url) || '';
-  const [state, dispatch] = useReducer(bookReducer, bookInitialState);
+  const [bookState, dispatch] = useReducer(bookReducer, bookInitialState);
+  const { pending, similar_books = [] } = bookState;
 
   useEffect(() => getBook(dispatch, url), [url]);
-
-  const { pending, similar_books = [] } = state;
 
   return pending ? (
     <Loading />
   ) : (
     <Container>
-      <SingleBook {...state} />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h2>Similar Books:</h2>
-      {similar_books.map((book: BookInterface) => (
-        <SingleBook key={book.id} {...book} />
-      ))}
+      <BookInfo {...bookState} />
+      {similar_books.length > 0 && <SimilarBooks books={similar_books} />}
     </Container>
   );
 };

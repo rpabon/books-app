@@ -1,5 +1,5 @@
 import BookList from './components/BookList/BookList';
-import Book from './components/Book';
+import Book from './components/Book/Book';
 
 export default [
   {

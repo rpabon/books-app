@@ -7,6 +7,7 @@ export const bookInitialState = {
   title: '',
   isbn: 0,
   image_url: '',
+  small_image_url: '',
   year: new Date().getFullYear(),
   description: '',
   rating: 0,

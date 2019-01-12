@@ -29,6 +29,7 @@ export interface BookState {
   readonly title: string;
   readonly isbn: number;
   readonly image_url: string;
+  readonly small_image_url: string;
   readonly year: number;
   readonly description: string;
   readonly rating: number;

@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+.outer-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 88px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, transparent 0%, $white 100%);
+    pointer-events: none;
+  }
+}
+
+.inner-container {
+  display: flex;
+  transition: transform 0.3s ease-in;
+}
+
+.book {
+  display: flex;
+  align-items: flex-start;
+  width: 200px; // must be the same as in SimilarBooks.tsx
+  box-shadow: $casting-shadow;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.book-info {
+  padding: 0 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}

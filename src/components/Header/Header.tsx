@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import * as styles from './Header.scss';
 import Container from '../Container/Container';
 import SearchBar from './SearchBar';
@@ -8,9 +9,13 @@ import content from '../../content';
 const Header: FunctionComponent = () => (
   <header className={styles.header}>
     <Container flex={true}>
-      <h1 className={styles.title}>{content.appName}</h1>
+      <Link to="/">
+        <h1 className={styles.title}>{content.appName}</h1>
+      </Link>
+
       <SearchBar />
-      <Avatar className={styles.avatar} />
+
+      <Avatar />
     </Container>
   </header>
 );

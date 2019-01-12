@@ -1,20 +1,16 @@
-import React, {
-  useState,
-  useContext,
-  KeyboardEvent,
-  FunctionComponent
-} from 'react';
+import React, { useContext, KeyboardEvent, FunctionComponent } from 'react';
 import { withRouter } from 'react-router';
+import content from '../../content';
 import { getBookList } from '../../store/actions';
 import { BookListContext } from '../../store/contexts';
 import { History } from 'history';
 import * as styles from './Header.scss';
+import InputText from '../InputText/InputText';
 
 const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
-  const [value, setValue] = useState('');
   const { dispatch } = useContext(BookListContext);
 
-  const onEnter = ({ key }: KeyboardEvent) => {
+  const onEnter = ({ key }: KeyboardEvent, value: string) => {
     if (key === 'Enter' && value) {
       getBookList(dispatch, value);
       history.push('/');
@@ -22,15 +18,11 @@ const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
   };
 
   return (
-    <div className={styles.inputWrapper}>
-      <input
-        type="text"
-        onKeyPress={e => onEnter(e)}
-        onChange={e => setValue(e.target.value)}
-        value={value}
-        placeholder="Search for a book..."
-      />
-    </div>
+    <InputText
+      onEnter={onEnter}
+      placeholder={content.searchBarInputPlaceholder}
+      className={styles.inputText}
+    />
   );
 };
 
