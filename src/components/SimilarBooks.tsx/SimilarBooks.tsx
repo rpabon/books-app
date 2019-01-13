@@ -3,6 +3,7 @@ import { BookState } from '../../interfaces';
 import * as styles from './SimilarBooks.scss';
 import content from '../../content';
 import SimilarBook from './SimilarBook';
+import Button from '../Button/Button';
 
 const SimilarBooks: FunctionComponent<{ books: BookState[] }> = ({ books }) => {
   const bookWidth = 200;
@@ -31,9 +32,9 @@ const SimilarBooks: FunctionComponent<{ books: BookState[] }> = ({ books }) => {
         </div>
       </div>
 
-      <button type="button" onClick={nextPosition}>
-        &rarr;
-      </button>
+      <Button onClick={nextPosition}>
+        <i className={styles.buttonRight} />
+      </Button>
     </>
   );
 };

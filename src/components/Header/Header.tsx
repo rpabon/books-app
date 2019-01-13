@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
+import content from '../../content';
 import { Link } from 'react-router-dom';
 import * as styles from './Header.scss';
 import Container from '../Container/Container';
 import SearchBar from './SearchBar';
 import Avatar from '../Avatar/Avatar';
-import content from '../../content';
 
 const Header: FunctionComponent = () => (
   <header className={styles.header}>
@@ -15,7 +15,7 @@ const Header: FunctionComponent = () => (
 
       <SearchBar />
 
-      <Avatar />
+      <Avatar bgImageClass={styles.logo} />
     </Container>
   </header>
 );

@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../spritesmith-generated/sprite';
 
 .outer-container {
   position: relative;
@@ -35,8 +36,25 @@
 }
 
 .book-info {
+  overflow: hidden;
+  width: 100%;
   padding: 0 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+}
+
+.book-info-title {
+  overflow: hidden;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-rating {
+  transform: scale(0.3);
+}
+
+.button-right {
+  @include sprite($chevron-right-48);
 }

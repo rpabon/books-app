@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { BookState } from '../../interfaces';
 import * as styles from './Book.scss';
 import content from '../../content';
 
 const BookInfo: FunctionComponent<BookState> = ({
-  id,
   title,
   image_url,
   author,
@@ -29,4 +28,4 @@ const BookInfo: FunctionComponent<BookState> = ({
   </div>
 );
 
-export default BookInfo;
+export default memo(BookInfo);

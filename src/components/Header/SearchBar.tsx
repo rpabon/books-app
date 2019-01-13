@@ -22,6 +22,7 @@ const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
       onEnter={onEnter}
       placeholder={content.searchBarInputPlaceholder}
       className={styles.inputText}
+      icon={<i className={styles.searchIcon} />}
     />
   );
 };

@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .avatar {
-  display: inline-block;
+  display: flex;
   width: 48px;
   height: 48px;
   margin: 0;
@@ -20,8 +20,9 @@
   &:hover {
     background-color: rgba($white, 0.15);
   }
+}
 
-  & > img {
-    width: 32px;
-  }
+.avatar-image {
+  width: 32px;
+  height: 32px;
 }

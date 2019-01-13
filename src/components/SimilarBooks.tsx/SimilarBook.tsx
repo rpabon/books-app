@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { BookState } from '../../interfaces';
 import { Link } from 'react-router-dom';
 import * as styles from './SimilarBooks.scss';
@@ -13,13 +13,13 @@ const SimilarBook: FunctionComponent<BookState> = ({
 }) => (
   <Link className={styles.book} to={`/book/${id}`}>
     <img src={small_image_url} title={title} />
+
     <div className={styles.bookInfo}>
-      {title}
-      <br/>
+      <div className={styles.bookInfoTitle}>{title}</div>
       <small>{author}</small>
-      <Rating rating={rating} />
     </div>
+    <Rating rating={rating} className={styles.bookRating} />
   </Link>
 );
 
-export default SimilarBook;
+export default memo(SimilarBook);

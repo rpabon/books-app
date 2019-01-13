@@ -19,7 +19,7 @@ const BookItem: FunctionComponent<Book> = ({
           className={styles.itemTitle}
           dangerouslySetInnerHTML={{ __html: title }}
         />
-        <Rating rating={rating}/>
+        <Rating rating={rating} className={styles.bookItemRating} />
 
         <div className={styles.footer}>
           <span>{author}</span>

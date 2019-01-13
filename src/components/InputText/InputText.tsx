@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useState, KeyboardEvent, memo } from 'react';
+import React, {
+  FunctionComponent,
+  useState,
+  KeyboardEvent,
+  memo,
+  ReactElement
+} from 'react';
 import classnames from 'classnames';
 import * as styles from './InputText.scss';
 
@@ -6,11 +12,13 @@ const InputText: FunctionComponent<{
   onEnter: (e: KeyboardEvent, value: string) => void;
   placeholder: string;
   className?: string;
-}> = ({ onEnter, placeholder, className = '' }) => {
+  icon?: ReactElement<{}>;
+}> = ({ onEnter, placeholder, className = '', icon }) => {
   const [value, setValue] = useState('');
 
   return (
     <div className={classnames(styles.inputWrapper, className)}>
+      {icon}
       <input
         type="text"
         value={value}
