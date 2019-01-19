@@ -5,12 +5,12 @@ import {
   BOOK_LIST_ERROR
 } from '../constants';
 
-export const bookListInitialState = {
+export const bookListInitialState: () => BookListState = () => ({
   pending: false,
   list: []
-};
+});
 
-export const bookListReducer = (state: BookListState, action: StoreAction) => {
+export default (state = bookListInitialState(), action: StoreAction) => {
   const { type, payload } = action;
 
   switch (type) {

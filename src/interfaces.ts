@@ -40,3 +40,9 @@ export interface BookState {
   readonly similar_books?: Book[];
   readonly error?: Error;
 }
+
+/* Combine reducer state */
+export interface StoreState {
+  readonly bookList: BookListState;
+  readonly book: BookState;
+}

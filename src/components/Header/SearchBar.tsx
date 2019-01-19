@@ -2,17 +2,18 @@ import React, { useContext, KeyboardEvent, FunctionComponent } from 'react';
 import { withRouter } from 'react-router';
 import content from '../../content';
 import { getBookList } from '../../store/actions';
-import { BookListContext } from '../../store/contexts';
 import { History } from 'history';
 import * as styles from './Header.scss';
 import InputText from '../InputText/InputText';
+import { connect } from 'react-redux';
 
-const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
-  const { dispatch } = useContext(BookListContext);
-
+const SearchInput: FunctionComponent<{
+  history: History;
+  getBookList: (value: string) => {};
+}> = ({ history, getBookList }) => {
   const onEnter = ({ key }: KeyboardEvent, value: string) => {
     if (key === 'Enter' && value) {
-      getBookList(dispatch, value);
+      getBookList(value);
       history.push('/');
     }
   };
@@ -27,4 +28,7 @@ const SearchInput: FunctionComponent<{ history: History }> = ({ history }) => {
   );
 };
 
-export default withRouter(SearchInput);
+export default connect(
+  null,
+  { getBookList }
+)(withRouter(SearchInput));

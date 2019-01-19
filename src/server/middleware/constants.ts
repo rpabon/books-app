@@ -1,4 +1,7 @@
+export const SERVER_PORT = 1337;
+
 export const BASE_URL = 'https://www.goodreads.com';
+export const LOCAL_URL = `http://localhost:${SERVER_PORT}`;
 
 export const API_KEY = 'lImPPSmrPgewMvaxepEspw';
 
@@ -16,3 +19,5 @@ export const xmlParserOptions = {
   cdataTagName: '__cdata', // default is 'false'
   cdataPositionChar: '\\c'
 };
+
+export const DEFAULT_BOOK_LIST_QUERY = 'tolkien';

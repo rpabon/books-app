@@ -1,29 +1,36 @@
 import axios from 'axios';
-import { DispatchAction } from '../interfaces';
+import { Request } from 'express';
+import { Dispatch } from 'redux';
 import {
   BOOK_LIST_PENDING,
   BOOK_LIST_SUCCESS,
   BOOK_PENDING,
   BOOK_SUCCESS
 } from './constants';
+import { LOCAL_URL } from '../server/middleware/constants';
 
-export const getBookList = (dispatch: DispatchAction, value: string) => {
+export const getBookList = (value: string) => (dispatch: Dispatch) => {
   dispatch({ type: BOOK_LIST_PENDING });
 
   return axios
-    .get(`/fetch-books?q=${value}`)
+    .get(`${LOCAL_URL}/fetch-books?q=${value}`)
     .then(({ data }: any) =>
       dispatch({ type: BOOK_LIST_SUCCESS, payload: data.books })
     );
 };
 
-export const getBook = (dispatch: DispatchAction, url: string) => {
+export const getBook = (id: number) => (dispatch: Dispatch) => {
   dispatch({ type: BOOK_PENDING });
 
-  const id = url.replace('book/', '');
+  return axios
+    .get(`${LOCAL_URL}/fetch-book?id=${id}`)
+    .then(({ data }: any) =>
+      dispatch({ type: BOOK_SUCCESS, payload: data.book })
+    );
+};
 
-  return axios.get(`/fetch-book?id=${id}`).then(({ data }: any) => {
-    console.log(data.raw, data.book);
-    dispatch({ type: BOOK_SUCCESS, payload: data.book });
-  });
+export const getBookByUrl = ({ params }: Request) => {
+  const id = params[0].replace('book/', '');
+
+  return getBook(Number(id));
 };
