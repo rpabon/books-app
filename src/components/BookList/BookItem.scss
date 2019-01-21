@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.item {
+  display: flex;
+  overflow: hidden;
+  height: 150px;
+  box-shadow: $casting-shadow;
+}
+
+.text-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.item-title {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.book-item-rating {
+  margin-bottom: auto;
+  transform: scale(0.35);
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin-left: auto;
+
+  & > img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.image-background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.85;
+  background-size: contain;
+  filter: blur(3px);
+}
+
+.footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.year {
+  font-style: italic;
+}

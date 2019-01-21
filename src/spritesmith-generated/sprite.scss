@@ -1,0 +1,178 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$chevron-left-48-name: 'chevron-left-48';
+$chevron-left-48-x: 288px;
+$chevron-left-48-y: 128px;
+$chevron-left-48-offset-x: -288px;
+$chevron-left-48-offset-y: -128px;
+$chevron-left-48-width: 48px;
+$chevron-left-48-height: 48px;
+$chevron-left-48-total-width: 368px;
+$chevron-left-48-total-height: 272px;
+$chevron-left-48-image: '/images/sprite.png';
+$chevron-left-48: (288px, 128px, -288px, -128px, 48px, 48px, 368px, 272px, '/images/sprite.png', 'chevron-left-48', );
+$chevron-left-96-name: 'chevron-left-96';
+$chevron-left-96-x: 0px;
+$chevron-left-96-y: 128px;
+$chevron-left-96-offset-x: 0px;
+$chevron-left-96-offset-y: -128px;
+$chevron-left-96-width: 96px;
+$chevron-left-96-height: 96px;
+$chevron-left-96-total-width: 368px;
+$chevron-left-96-total-height: 272px;
+$chevron-left-96-image: '/images/sprite.png';
+$chevron-left-96: (0px, 128px, 0px, -128px, 96px, 96px, 368px, 272px, '/images/sprite.png', 'chevron-left-96', );
+$chevron-right-48-name: 'chevron-right-48';
+$chevron-right-48-x: 288px;
+$chevron-right-48-y: 176px;
+$chevron-right-48-offset-x: -288px;
+$chevron-right-48-offset-y: -176px;
+$chevron-right-48-width: 48px;
+$chevron-right-48-height: 48px;
+$chevron-right-48-total-width: 368px;
+$chevron-right-48-total-height: 272px;
+$chevron-right-48-image: '/images/sprite.png';
+$chevron-right-48: (288px, 176px, -288px, -176px, 48px, 48px, 368px, 272px, '/images/sprite.png', 'chevron-right-48', );
+$chevron-right-96-name: 'chevron-right-96';
+$chevron-right-96-x: 96px;
+$chevron-right-96-y: 128px;
+$chevron-right-96-offset-x: -96px;
+$chevron-right-96-offset-y: -128px;
+$chevron-right-96-width: 96px;
+$chevron-right-96-height: 96px;
+$chevron-right-96-total-width: 368px;
+$chevron-right-96-total-height: 272px;
+$chevron-right-96-image: '/images/sprite.png';
+$chevron-right-96: (96px, 128px, -96px, -128px, 96px, 96px, 368px, 272px, '/images/sprite.png', 'chevron-right-96', );
+$logo-2x-name: 'logo@2x';
+$logo-2x-x: 0px;
+$logo-2x-y: 0px;
+$logo-2x-offset-x: 0px;
+$logo-2x-offset-y: 0px;
+$logo-2x-width: 128px;
+$logo-2x-height: 128px;
+$logo-2x-total-width: 368px;
+$logo-2x-total-height: 272px;
+$logo-2x-image: '/images/sprite.png';
+$logo-2x: (0px, 0px, 0px, 0px, 128px, 128px, 368px, 272px, '/images/sprite.png', 'logo@2x', );
+$rating-empty-name: 'rating-empty';
+$rating-empty-x: 128px;
+$rating-empty-y: 0px;
+$rating-empty-offset-x: -128px;
+$rating-empty-offset-y: 0px;
+$rating-empty-width: 240px;
+$rating-empty-height: 48px;
+$rating-empty-total-width: 368px;
+$rating-empty-total-height: 272px;
+$rating-empty-image: '/images/sprite.png';
+$rating-empty: (128px, 0px, -128px, 0px, 240px, 48px, 368px, 272px, '/images/sprite.png', 'rating-empty', );
+$rating-filled-name: 'rating-filled';
+$rating-filled-x: 128px;
+$rating-filled-y: 48px;
+$rating-filled-offset-x: -128px;
+$rating-filled-offset-y: -48px;
+$rating-filled-width: 240px;
+$rating-filled-height: 48px;
+$rating-filled-total-width: 368px;
+$rating-filled-total-height: 272px;
+$rating-filled-image: '/images/sprite.png';
+$rating-filled: (128px, 48px, -128px, -48px, 240px, 48px, 368px, 272px, '/images/sprite.png', 'rating-filled', );
+$search-48-name: 'search-48';
+$search-48-x: 0px;
+$search-48-y: 224px;
+$search-48-offset-x: 0px;
+$search-48-offset-y: -224px;
+$search-48-width: 48px;
+$search-48-height: 48px;
+$search-48-total-width: 368px;
+$search-48-total-height: 272px;
+$search-48-image: '/images/sprite.png';
+$search-48: (0px, 224px, 0px, -224px, 48px, 48px, 368px, 272px, '/images/sprite.png', 'search-48', );
+$search-96-name: 'search-96';
+$search-96-x: 192px;
+$search-96-y: 128px;
+$search-96-offset-x: -192px;
+$search-96-offset-y: -128px;
+$search-96-width: 96px;
+$search-96-height: 96px;
+$search-96-total-width: 368px;
+$search-96-total-height: 272px;
+$search-96-image: '/images/sprite.png';
+$search-96: (192px, 128px, -192px, -128px, 96px, 96px, 368px, 272px, '/images/sprite.png', 'search-96', );
+$spritesheet-width: 368px;
+$spritesheet-height: 272px;
+$spritesheet-image: '/images/sprite.png';
+$spritesheet-sprites: ($chevron-left-48, $chevron-left-96, $chevron-right-48, $chevron-right-96, $logo-2x, $rating-empty, $rating-filled, $search-48, $search-96, );
+$spritesheet: (368px, 272px, '/images/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,16 +1,25 @@
 import React, { FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import rootReducer from './store/reducers';
 import App from './components/App';
-import StoreProvider from './store/StoreProvider';
+
+const store = createStore(
+  rootReducer,
+  window.__STORE__,
+  applyMiddleware(thunkMiddleware)
+);
 
 const ClientApp: FunctionComponent<{}> = () => {
   return (
-    <StoreProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StoreProvider>
+    </Provider>
   );
 };
 

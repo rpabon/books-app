@@ -1,0 +1,19 @@
+.book-info-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.book-info {
+  margin-left: 16px;
+
+  & > h1,
+  & > h6 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+}
+
+.book-info-description {
+  margin-top: 24px;
+}

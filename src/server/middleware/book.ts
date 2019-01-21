@@ -22,18 +22,23 @@ const parseBook = ({
   title: work.original_title || title.__cdata || title || title_without_series,
   year: work.original_publication_year || publication_year,
   rating: average_rating,
-  ...(image_url && {image_url: image_url.__cdata || image_url}),
-  ...(small_image_url && {small_image_url: small_image_url.__cdata || small_image_url}),
-  ...(title && title.__cdata && {title: title.__cdata}),
-  ...(isbn && isbn.__cdata && {isbn: Number(isbn.__cdata)}),
-  ...(description && description.__cdata && {description: description.__cdata}),
-  ...(num_pages && num_pages.__cdata && {num_pages: Number(num_pages.__cdata)}),
-  ...(author.id && {author_id: Number(author.id)}),
-  ...(author.name && {author_name: author.name}),
-  ...(author.image_url && author.image_url.__cdata && {author_image_url: author.image_url.__cdata}),
-  ...(similar_books && Array.isArray(similar_books.book) && {
-    similar_books: similar_books.book.map((b: any) => parseBook(b))
-  })
+  ...(image_url && { image_url: image_url.__cdata || image_url }),
+  ...(small_image_url && {
+    small_image_url: small_image_url.__cdata || small_image_url
+  }),
+  ...(isbn && isbn.__cdata && { isbn: Number(isbn.__cdata) }),
+  ...(description &&
+    description.__cdata && { description: description.__cdata }),
+  ...(num_pages &&
+    num_pages.__cdata && { num_pages: Number(num_pages.__cdata) }),
+  ...(author.id && { author_id: Number(author.id) }),
+  ...(author.name && { author: author.name }),
+  ...(author.image_url &&
+    author.image_url.__cdata && { author_image_url: author.image_url.__cdata }),
+  ...(similar_books &&
+    Array.isArray(similar_books.book) && {
+      similar_books: similar_books.book.map((b: any) => parseBook(b))
+    })
 });
 
 export default (req: Request, res: Response) => {

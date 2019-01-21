@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.button {
+  position: relative;
+  display: inline-block;
+  height: 36px;
+  padding: 0 16px;
+  margin: 0;
+  min-width: 64px;
+  border: none;
+  border-radius: 2px;
+  color: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle;
+
+  &:hover {
+    box-shadow: $casting-shadow;
+  }
+}

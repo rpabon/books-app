@@ -1,0 +1,20 @@
+@import '../../spritesmith-generated/sprite';
+
+.rating-container {
+  position: relative;
+}
+
+.rating-empty,
+.rating-filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rating-empty {
+  @include sprite($rating-empty);
+}
+
+.rating-filled {
+  @include sprite($rating-filled);
+}

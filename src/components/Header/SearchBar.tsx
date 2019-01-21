@@ -1,27 +1,34 @@
-import React, { useState, useContext, KeyboardEvent, SFC } from 'react';
+import React, { useContext, KeyboardEvent, FunctionComponent } from 'react';
 import { withRouter } from 'react-router';
+import content from '../../content';
 import { getBookList } from '../../store/actions';
-import { BookListContext } from '../../store/contexts';
+import { History } from 'history';
+import * as styles from './Header.scss';
+import InputText from '../InputText/InputText';
+import { connect } from 'react-redux';
 
-const SearchInput: SFC<{}> = ({ history }) => {
-  const [value, setValue] = useState('');
-  const { dispatch } = useContext(BookListContext);
-
-  const onEnter = ({ key }: KeyboardEvent) => {
+const SearchInput: FunctionComponent<{
+  history: History;
+  getBookList: (value: string) => {};
+}> = ({ history, getBookList }) => {
+  const onEnter = ({ key }: KeyboardEvent, value: string) => {
     if (key === 'Enter' && value) {
-      getBookList(dispatch, value);
+      getBookList(value);
       history.push('/');
     }
   };
 
   return (
-    <input
-      type="text"
-      onKeyPress={e => onEnter(e)}
-      onChange={e => setValue(e.target.value)}
-      value={value}
+    <InputText
+      onEnter={onEnter}
+      placeholder={content.searchBarInputPlaceholder}
+      className={styles.inputText}
+      icon={<i className={styles.searchIcon} />}
     />
   );
 };
 
-export default withRouter(SearchInput);
+export default connect(
+  null,
+  { getBookList }
+)(withRouter(SearchInput));

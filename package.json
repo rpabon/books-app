@@ -1,5 +1,5 @@
 {
-  "name": "posts-app",
+  "name": "book-app",
   "version": "0.1.0",
   "description": "App for learning stuff",
   "private": true,
@@ -14,12 +14,16 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "fast-xml-parser": "^3.12.10",
     "modern-normalize": "^0.5.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -30,6 +34,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.0.0",
+    "@types/classnames": "^2.2.6",
     "@types/express": "^4.16.0",
     "@types/react": "^16.7.2",
     "@types/react-dom": "^16.0.9",
@@ -40,11 +45,14 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-transform-assets": "^1.0.2",
     "babel-regenerator-runtime": "^6.5.0",
     "css-loader": "^1.0.0",
     "express": "^4.16.4",
+    "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.6.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.4",
@@ -56,6 +64,7 @@
     "typescript": "^3.1.6",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-spritesmith": "^0.5.4"
   }
 }

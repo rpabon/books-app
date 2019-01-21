@@ -1,28 +1,31 @@
-import React, { useContext, FunctionComponent } from 'react';
-import { Link } from 'react-router-dom';
-import { Book } from '../../interfaces';
-import { BookListContext } from '../../store/contexts';
-import Loading from '../Loading';
-import styles from './BookList.scss';
+import React, { memo, FunctionComponent } from 'react';
+import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { Book, BookListState, StoreState } from '../../interfaces';
+import * as styles from './BookList.scss';
+import Container from '../Container/Container';
+import Loading from '../Loading/Loading';
+import BookItem from './BookItem';
 
-const BookList: FunctionComponent<{}> = () => {
-  const {
-    state: { pending, list },
-  } = useContext(BookListContext);
+const BookList: FunctionComponent<BookListState> = ({ pending, list = [] }) => (
+  <Container
+    tag={pending ? 'div' : 'ul'}
+    className={classnames(styles.bookList, { [styles.isLoading]: pending })}
+  >
+    {pending ? (
+      <Loading />
+    ) : (
+      list.map((book: Book) => <BookItem key={book.id} {...book} />)
+    )}
+  </Container>
+);
 
-  return pending ? (
-    <Loading />
-  ) : (
-    list.map(({ id, url_small, title, author }: Book) => (
-      <li key={id} className={styles.book}>
-        <img src={url_small} title={title} />
-        <Link to={`/book/${id}`}>{title}</Link>
-        <br />
-        <small>{author}</small>
-        <hr />
-      </li>
-    ))
-  );
-};
+const mapStateToProps = ({ bookList }: StoreState) => ({
+  pending: bookList.pending,
+  list: bookList.list
+});
 
-export default BookList;
+export default connect(
+  mapStateToProps,
+  {}
+)(memo(BookList));

@@ -12,13 +12,15 @@ export default (req: Request, res: Response) => {
       const tObj = getTraversalObj(data, xmlParserOptions);
       const jsonObj = convertToJson(tObj, xmlParserOptions);
       const books = jsonObj.GoodreadsResponse.search.results.work.map(
-        ({ best_book }: any) => ({
+        ({ best_book, original_publication_year, average_rating }: any) => ({
           id: best_book.id,
           url: best_book.image_url,
           url_small: best_book.small_image_url,
           title: (best_book.title || '').replace(/ *\([^)]*\) */g, ''),
           author: best_book.author.name,
-          author_id: best_book.author.id
+          author_id: best_book.author.id,
+          year: original_publication_year,
+          rating: average_rating
         })
       );
 

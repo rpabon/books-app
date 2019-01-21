@@ -13,6 +13,8 @@ export interface Book {
   readonly author: string;
   readonly url: string;
   readonly url_small: string;
+  readonly year: number;
+  readonly rating: number;
 }
 
 export interface BookListState {
@@ -27,6 +29,7 @@ export interface BookState {
   readonly title: string;
   readonly isbn: number;
   readonly image_url: string;
+  readonly small_image_url: string;
   readonly year: number;
   readonly description: string;
   readonly rating: number;
@@ -36,4 +39,10 @@ export interface BookState {
   readonly author_image_url: string;
   readonly similar_books?: Book[];
   readonly error?: Error;
+}
+
+/* Combine reducer state */
+export interface StoreState {
+  readonly bookList: BookListState;
+  readonly book: BookState;
 }

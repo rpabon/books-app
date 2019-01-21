@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/global.scss';
+import '../spritesmith-generated/sprite.png';
 import { Switch, Route } from 'react-router-dom';
 import routes from '../routes';
 import Header from './Header/Header';
