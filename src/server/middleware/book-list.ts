@@ -16,7 +16,7 @@ export default (req: Request, res: Response) => {
           id: best_book.id,
           url: best_book.image_url,
           url_small: best_book.small_image_url,
-          title: best_book.title,
+          title: (best_book.title || '').replace(/ *\([^)]*\) */g, ''),
           author: best_book.author.name,
           author_id: best_book.author.id
         })

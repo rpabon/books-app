@@ -5,7 +5,8 @@ import { getTraversalObj, convertToJson } from 'fast-xml-parser';
 
 const parseBook = ({
   id,
-  title,
+  title = {},
+  title_without_series,
   isbn,
   image_url,
   small_image_url,
@@ -15,9 +16,11 @@ const parseBook = ({
   num_pages,
   authors: { author = {} },
   similar_books,
+  work = {}
 }: any) => ({
   id,
-  year: publication_year,
+  title: work.original_title || title.__cdata || title || title_without_series,
+  year: work.original_publication_year || publication_year,
   rating: average_rating,
   ...(image_url && {image_url: image_url.__cdata || image_url}),
   ...(small_image_url && {small_image_url: small_image_url.__cdata || small_image_url}),
@@ -41,11 +44,10 @@ export default (req: Request, res: Response) => {
     .then(({ data }) => {
       const tObj = getTraversalObj(data, xmlParserOptions);
       const jsonObj = convertToJson(tObj, xmlParserOptions);
-      const raw = jsonObj.GoodreadsResponse;
       const book = parseBook(jsonObj.GoodreadsResponse.book);
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ book, raw }));
+      res.end(JSON.stringify({ book }));
     })
     .catch(error => console.log(error));
 };
