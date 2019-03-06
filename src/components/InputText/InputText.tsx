@@ -19,6 +19,7 @@ const InputText: FunctionComponent<{
   return (
     <div className={classnames(styles.inputWrapper, className)}>
       {icon}
+
       <input
         type="text"
         value={value}

@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   entry: ['babel-regenerator-runtime', './src/client.tsx'],
@@ -44,7 +45,31 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              publicPath: '/'
+            }
+          },
+          {
+            // This loader increases considerably the build time,
+            // consider using it only in production
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -109,6 +134,7 @@ module.exports = {
       apiOptions: {
         cssImageRef: '/images/sprite.png' // images is the output path for the image loader
       }
-    })
+    }),
+    new SpriteLoaderPlugin()
   ]
 };

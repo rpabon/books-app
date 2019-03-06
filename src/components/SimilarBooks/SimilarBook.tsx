@@ -16,9 +16,9 @@ const SimilarBook: FunctionComponent<BookState> = ({
 
     <div className={styles.bookInfo}>
       <div className={styles.bookInfoTitle}>{title}</div>
+      <Rating rating={rating} className={styles.bookInfoRating} />
       <small>{author}</small>
     </div>
-    <Rating rating={rating} className={styles.bookRating} />
   </Link>
 );
 

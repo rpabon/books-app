@@ -6,6 +6,7 @@ import Loading from '../Loading/Loading';
 import Container from '../Container/Container';
 import BookInfo from './BookInfo';
 import SimilarBooks from '../SimilarBooks/SimilarBooks';
+import * as styles from './Book.scss';
 
 interface IBook extends BookState {
   match: any;
@@ -34,7 +35,7 @@ const Book: FunctionComponent<IBook> = ({
   return pending ? (
     <Loading />
   ) : (
-    <Container>
+    <Container className={styles.bookContainer}>
       <BookInfo {...bookInfo} />
       {similar_books.length > 0 && <SimilarBooks books={similar_books} />}
     </Container>

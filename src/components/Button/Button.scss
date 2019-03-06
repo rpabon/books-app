@@ -27,4 +27,11 @@
   &:hover {
     box-shadow: $casting-shadow;
   }
+
+  & > svg {
+    width: 24px;
+    height: 24px;
+    fill: inherit;
+
+  }
 }

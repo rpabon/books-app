@@ -36,9 +36,12 @@
 }
 
 .book-info {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   width: 100%;
-  padding: 0 8px;
+  height: 100%;
+  padding: 4px 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -51,8 +54,11 @@
   white-space: nowrap;
 }
 
-.book-rating {
-  transform: scale(0.3);
+.book-info-rating {
+  top: 4px;
+  left: -12px;
+  margin-bottom: auto;
+  transform: scale(0.8);
 }
 
 .button-right {

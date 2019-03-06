@@ -26,14 +26,12 @@
 
 .search-icon {
   position: absolute;
-  top: 5px;
+  top: 8px;
   left: 16px;
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  @include sprite-image($search-48);
-  @include sprite-position($search-48);
-  background-size: 167px;
+  width: 16px;
+  height: 16px;
+  fill: $white;
 }
 
 .logo {

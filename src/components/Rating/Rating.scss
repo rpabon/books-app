@@ -1,20 +1,29 @@
-@import '../../spritesmith-generated/sprite';
+@import '../../styles/variables';
 
 .rating-container {
   position: relative;
+  width: 100%;
 }
 
-.rating-empty,
-.rating-filled {
+.star-container {
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  overflow: hidden;
 }
 
-.rating-empty {
-  @include sprite($rating-empty);
+.star,
+.star-filled {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 
-.rating-filled {
-  @include sprite($rating-filled);
+.star {
+  fill: $gray;
+}
+
+.star-filled {
+  fill: $star-yellow;
 }
