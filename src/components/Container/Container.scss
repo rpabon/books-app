@@ -1,7 +1,9 @@
+@import '../../styles/variables';
+
 .container {
   display: grid;
   grid-gap: 16px;
-  max-width: 960px;
+  max-width: map-get($map: $grid-breakpoints, $key: 'xl');
   padding-right: 16px;
   padding-left: 16px;
   margin-right: auto;

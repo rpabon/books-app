@@ -17,8 +17,8 @@
     "classnames": "^2.2.6",
     "fast-xml-parser": "^3.12.10",
     "modern-normalize": "^0.5.0",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-loadable": "^5.5.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
@@ -68,6 +68,6 @@
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
-    "webpack-spritesmith": "^0.5.4"
+    "webpack-spritesmith": "^1.0.0"
   }
 }

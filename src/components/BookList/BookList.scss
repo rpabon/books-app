@@ -10,7 +10,7 @@
     grid-template-columns: 1fr;
   }
 
-  @include media(lg) {
+  @include media(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 

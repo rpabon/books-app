@@ -1,5 +1,10 @@
 @import '../../styles/variables';
-@import '../../spritesmith-generated/sprite';
+
+.similar-books {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
 
 .outer-container {
   position: relative;
@@ -61,6 +66,21 @@
   transform: scale(0.8);
 }
 
-.button-right {
-  @include sprite($chevron-right-48);
+button.nav-button {
+  margin-top: 4px;
+  background-color: transparent;
+  border: 1px solid $green;
+
+  &.nav-button-left {
+    margin-right: 16px;
+    margin-left: auto;
+  }
+
+  & > svg {
+    position: relative;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    fill: $green;
+  }
 }
